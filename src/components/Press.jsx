@@ -102,9 +102,9 @@ export default function Press() {
             </audio>
           </div>
 
-          <div className="p-4 bg-black/20 rounded-xl border border-white/10">
-            <div className="flex items-start justify-between mb-2">
-              <h4 className="font-bold text-white">RTS - Pili Pili</h4>
+          <div className="p-4 sm:p-6 bg-black/20 rounded-xl border border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
+              <h4 className="font-bold text-white mb-1 sm:mb-0">RTS - Pili Pili</h4>
               <span className="text-sm text-gray-400">9 février 2025</span>
             </div>
             <p className="text-gray-300 text-sm mb-3">

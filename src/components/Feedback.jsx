@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default function Feedback() {
+export default function Feedback({ isOpen }) {
   const [isLoading, setIsLoading] = useState(true)
-  const videoId = 'VM40X8RX0to'
+  const videoId = '1055034244'
+
+  // Reset loading state when section is closed
+  useEffect(() => {
+    if (!isOpen) {
+      setIsLoading(true)
+    }
+  }, [isOpen])
 
   return (
     <div className="space-y-6">
@@ -19,17 +26,19 @@ export default function Feedback() {
               <div className="text-white text-lg">Chargement de la vidéo...</div>
             </div>
           )}
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=0&modestbranding=1&rel=0&showinfo=0`}
-            title="Retours du public sur le film didy"
-            className="absolute top-0 left-0 w-full h-full"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            onLoad={() => setIsLoading(false)}
-            loading="lazy"
-            style={{ zIndex: isLoading ? 0 : 1 }}
-          />
+          {isOpen && (
+            <iframe
+              src={`https://player.vimeo.com/video/${videoId}?autoplay=0&title=0&byline=0&portrait=0`}
+              title="Retours du public sur le film didy"
+              className="absolute top-0 left-0 w-full h-full"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              onLoad={() => setIsLoading(false)}
+              loading="lazy"
+              style={{ zIndex: isLoading ? 0 : 1 }}
+            />
+          )}
         </div>
       </div>
 

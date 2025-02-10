@@ -11,7 +11,7 @@ const directors = [
         icon: "📷",
         text: "Instagram",
         displayText: "Instagram",
-        url: "https://www.instagram.com/comedie.francaise.officiel?igsh=MWR2Nm04ZHU1em55OA=="
+        url: "https://www.instagram.com/gaelkamilindi?igsh=MWRhZXV1dHRraXJuNw=="
       },
       {
         id: 2,
@@ -70,7 +70,7 @@ export default function Directors() {
             <h3 className="text-sm font-medium text-white text-center mb-1.5 drop-shadow-sm">{director.name}</h3>
             
             {/* Mini-icônes des liens */}
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-2 mb-3 sm:mb-2">
               {director.links.map((link) => (
                 <a
                   key={link.id}
@@ -78,7 +78,7 @@ export default function Directors() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.text}
-                  className="h-5 px-4 flex items-center justify-center bg-black/50 hover:bg-black/70 rounded-full transition-colors backdrop-blur-sm"
+                  className="h-6 sm:h-5 px-4 flex items-center justify-center bg-black/50 hover:bg-black/70 rounded-full transition-colors backdrop-blur-sm"
                 >
                   <span className="text-[11px]">{link.icon}</span>
                   <span className="text-[11px] ml-1.5 text-white font-medium whitespace-nowrap">{link.displayText}</span>

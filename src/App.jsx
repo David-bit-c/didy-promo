@@ -5,6 +5,7 @@ import Trailer from './components/Trailer'
 import Press from './components/Press'
 import Feedback from './components/Feedback'
 import ShareMenu from './components/ShareMenu'
+import InstagramSection from './components/InstagramSection'
 
 function App() {
   const [activeSection, setActiveSection] = useState(null)
@@ -14,6 +15,7 @@ function App() {
     directors: useRef(null),
     details: useRef(null),
     press: useRef(null),
+    instagram: useRef(null),
     feedback: useRef(null)
   }
 
@@ -75,17 +77,24 @@ function App() {
         </button>
 
         <button 
-          onClick={() => toggleSection('press')}
-          className={`w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'press' ? 'ring-2 ring-white/50' : ''}`}
-        >
-          📰 Presse & Médias
-        </button>
-
-        <button 
           onClick={() => toggleSection('feedback')}
           className={`w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'feedback' ? 'ring-2 ring-white/50' : ''}`}
         >
           💬 Retours du public
+        </button>
+
+        <button 
+          onClick={() => toggleSection('instagram')}
+          className={`w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'instagram' ? 'ring-2 ring-white/50' : ''}`}
+        >
+          📸 Instagram
+        </button>
+
+        <button 
+          onClick={() => toggleSection('press')}
+          className={`w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'press' ? 'ring-2 ring-white/50' : ''}`}
+        >
+          📰 Presse & Médias
         </button>
 
         <button 
@@ -114,7 +123,7 @@ function App() {
                   ✕
                 </button>
               </div>
-              <Trailer />
+              <Trailer isOpen={activeSection === 'trailer'} />
             </div>
           </div>
 
@@ -181,6 +190,27 @@ function App() {
             </div>
           </div>
 
+          {/* Instagram Section */}
+          <div
+            ref={sectionRefs.instagram}
+            className={`transition-all duration-300 ease-in-out overflow-hidden ${
+              activeSection === 'instagram' ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold">Instagram</h2>
+                <button 
+                  onClick={() => setActiveSection(null)}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+              <InstagramSection />
+            </div>
+          </div>
+
           {/* Feedback Section */}
           <div
             ref={sectionRefs.feedback}
@@ -198,7 +228,7 @@ function App() {
                   ✕
                 </button>
               </div>
-              <Feedback />
+              <Feedback isOpen={activeSection === 'feedback'} />
             </div>
           </div>
 

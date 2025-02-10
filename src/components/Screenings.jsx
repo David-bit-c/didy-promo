@@ -16,24 +16,134 @@ const screenings = {
       status: "available",
       mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
       bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 11,
+      date: "2025-02-10",
+      time: "16:25",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 12,
+      date: "2025-02-11",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 13,
+      date: "2025-02-12",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 14,
+      date: "2025-02-13",
+      time: "16:25",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 15,
+      date: "2025-02-14",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 16,
+      date: "2025-02-15",
+      time: "20:40",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 17,
+      date: "2025-02-16",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Bio 2",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 18,
+      date: "2025-02-17",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Bio 1",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 19,
+      date: "2025-02-18",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Bio 1",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
     }
   ],
   vaud: [
     {
       id: 2,
-      date: "2024-03-15",
+      date: "2025-02-09",
       time: "19:00",
       cinema: "City Pully",
       address: "Rue de la Poste 4, 1009 Pully",
       price: "16.00",
-      status: "coming",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=CityClub+Pully",
+      bookingLink: "https://cityclub.ticketack.com/screening/buy/67301264-c9d6-402f-aedf-b8d7f8cb25f4"
+    },
+    {
+      id: 20,
+      date: "2025-02-11",
+      time: "18:00",
+      cinema: "City Pully",
+      address: "Rue de la Poste 4, 1009 Pully",
+      price: "16.00",
+      status: "available",
       mapLink: "https://maps.google.com/?q=CityClub+Pully",
       bookingLink: "https://cityclub.ticketack.com/screening/buy/67301264-c9d6-402f-aedf-b8d7f8cb25f4"
     },
     {
       id: 3,
       date: "2024-03-20",
-      time: "20:00",
+      time: "",
       cinema: "La Bobine - Le Sentier",
       address: "Grand-Rue 23, 1347 Le Sentier",
       price: "15.00",
@@ -43,8 +153,8 @@ const screenings = {
     },
     {
       id: 4,
-      date: "2024-03-22",
-      time: "20:00",
+      date: "2025-02-15",
+      time: "17:00",
       cinema: "Cinéma Royal - Sainte-Croix",
       address: "Rue Centrale 4, 1450 Sainte-Croix",
       price: "15.00",
@@ -53,19 +163,8 @@ const screenings = {
       bookingLink: "https://www.cinemaroyal.ch/filmotheque/item/4944-didy.html"
     },
     {
-      id: 5,
-      date: "2024-03-25",
-      time: "19:30",
-      cinema: "Rex - Aubonne",
-      address: "Place du Marché 9, 1170 Aubonne",
-      price: "15.00",
-      status: "coming",
-      mapLink: "https://maps.google.com/?q=Cinema+Rex+Aubonne",
-      bookingLink: "https://www.rexaubonne.ch/"
-    },
-    {
       id: 6,
-      date: "2024-03-27",
+      date: "2025-02-11",
       time: "20:00",
       cinema: "Grain d'sel - Bex",
       address: "Route de l'Allex 7, 1880 Bex",
@@ -73,29 +172,39 @@ const screenings = {
       status: "coming",
       mapLink: "https://maps.google.com/?q=Cinema+Grain+d'sel+Bex",
       bookingLink: "https://graindesel.ch/2024/12/27/didy/"
-    }
-  ],
-  valais: [
+    },
     {
-      id: 7,
-      date: "2024-04-10",
-      time: "20:30",
-      cinema: "Cinéma Casino - Martigny",
-      address: "Avenue de la Gare 17, 1920 Martigny",
+      id: 21,
+      date: "2025-02-17",
+      time: "18:00",
+      cinema: "Rex - Vevey",
+      address: "Rue J.-J. Rousseau 6, 1800 Vevey",
       price: "15.00",
       status: "coming",
-      mapLink: "https://maps.google.com/?q=Cinema+Casino+Martigny",
-      bookingLink: "https://cinerive.com/fr/martigny-casino"
+      mapLink: "https://maps.google.com/?q=Cinema+Rex+Vevey",
+      bookingLink: "https://www.rexvevey.ch/"
+    },
+    {
+      id: 22,
+      date: "2025-02-18",
+      time: "18:00",
+      cinema: "Rex - Vevey",
+      address: "Rue J.-J. Rousseau 6, 1800 Vevey",
+      price: "15.00",
+      status: "coming",
+      mapLink: "https://maps.google.com/?q=Cinema+Rex+Vevey",
+      bookingLink: "https://www.rexvevey.ch/"
     }
   ],
+  valais: [],
   fribourg: [
     {
       id: 8,
-      date: "2024-04-12",
-      time: "19:30",
+      date: "",
+      time: "",
       cinema: "Rex - Fribourg",
       address: "Boulevard de Pérolles 5A, 1700 Fribourg",
-      price: "16.00",
+      price: "",
       status: "coming",
       mapLink: "https://maps.google.com/?q=Cinema+Rex+Fribourg",
       bookingLink: "https://www.cineman.ch/fr/film/2004/Didy/seances.html#movie-detail-nav"
@@ -189,20 +298,24 @@ export default function Screenings() {
           {regions.map((region) => (
             <Tab.Panel
               key={region}
-              className="rounded-xl focus:outline-none space-y-4"
+              className="rounded-xl focus:outline-none space-y-4 max-h-[2000px] overflow-y-auto"
             >
               {screenings[region].map((screening) => (
                 <div key={screening.id} className="bg-gray-800/40 backdrop-blur-sm p-4 rounded-xl border border-white/10 shadow-lg">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <FiCalendar className="text-gray-400" />
-                        <p className="font-bold text-lg text-white capitalize">{formatDate(screening.date)}</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FiClock className="text-gray-400" />
-                        <p className="text-gray-300">{screening.time}</p>
-                      </div>
+                      {screening.date && (
+                        <div className="flex items-center gap-2 mb-1">
+                          <FiCalendar className="text-gray-400" />
+                          <p className="font-bold text-lg text-white capitalize">{formatDate(screening.date)}</p>
+                        </div>
+                      )}
+                      {screening.time && (
+                        <div className="flex items-center gap-2">
+                          <FiClock className="text-gray-400" />
+                          <p className="text-gray-300">{screening.time}</p>
+                        </div>
+                      )}
                     </div>
                     <span className={`${getStatusColor(screening.status)} text-white text-sm px-3 py-1 rounded-full`}>
                       {getStatusText(screening.status)}
@@ -223,14 +336,21 @@ export default function Screenings() {
                   </div>
 
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Tarif: CHF {screening.price}</span>
+                    {screening.price && (
+                      <span className="text-gray-300">Tarif: CHF {screening.price}</span>
+                    )}
                     <a 
                       href={screening.bookingLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transform transition hover:scale-105"
                     >
-                      🎟️ Réserver
+                      {(screening.cinema.includes("La Bobine") || 
+                        screening.cinema.includes("Royal") || 
+                        screening.cinema.includes("Grain d'sel") || 
+                        screening.cinema.includes("Rex - Fribourg")) 
+                        ? "🎬 Infos & horaires" 
+                        : "🎟️ Réserver"}
                     </a>
                   </div>
                 </div>
