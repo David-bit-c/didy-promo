@@ -278,19 +278,20 @@ export default function ScreeningsSheet({ isOpen, onClose }) {
         </div>
 
         {/* En-tête fixe */}
-        <div className="sticky top-0 px-4 py-3 border-b border-white/10 bg-gray-900/95 backdrop-blur-sm">
-          <div className="flex items-center justify-between">
+        <div className="sticky top-0 px-4 py-5 border-b border-white/10 bg-gray-900/95 backdrop-blur-sm">
+          <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold text-white">Séances par région</h2>
             <button 
               onClick={onClose}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-gray-800/40"
+              aria-label="Fermer"
             >
-              ✕
+              <span className="text-xl">✕</span>
             </button>
           </div>
           
           <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
-            <Tab.List className="flex flex-wrap gap-2 mt-4">
+            <Tab.List className="flex flex-wrap gap-2 mt-2">
               {regions.map((region) => (
                 <Tab
                   key={region}
