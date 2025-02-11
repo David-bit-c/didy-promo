@@ -55,12 +55,12 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 px-4 py-6 relative">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 px-4 py-6 relative overflow-x-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-dot-pattern [background-size:20px_20px] opacity-30 pointer-events-none"></div>
+      <div className="fixed inset-0 bg-dot-pattern [background-size:20px_20px] opacity-30 pointer-events-none min-h-full"></div>
       
       {/* Poster/Header Section */}
-      <div className="max-w-[500px] mx-auto mb-8">
+      <div className="max-w-[500px] w-full mx-auto mb-8 relative">
         <div className="aspect-[1/1.4] w-full mb-4 rounded-lg overflow-hidden shadow-2xl">
           <img 
             src="/images/poster.jpeg" 
@@ -71,7 +71,7 @@ function App() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[500px] mx-auto space-y-4">
+      <div className="max-w-[500px] w-full mx-auto space-y-4 relative">
         {/* Action Buttons */}
         <button 
           onClick={() => toggleSection('synopsis')}
