@@ -35,11 +35,27 @@ function App() {
 
   const closeButtonClass = "w-12 h-12 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800/40 rounded-full transition-all"
 
-  const scrollToSection = (sectionRef) => {
+  const getOffset = (section) => {
+    if (isMobile) {
+      switch (section) {
+        case 'feedback':
+          return -60; // Remonter la section Retours du public
+        case 'press':
+          return -20; // S'assurer que le titre est toujours visible
+        default:
+          return -80;
+      }
+    }
+    return -100;
+  }
+
+  const scrollToSection = (sectionRef, section) => {
     if (sectionRef.current) {
       const absolutePosition = sectionRef.current.offsetTop
+      const offset = getOffset(section)
+      
       window.scrollTo({
-        top: absolutePosition - (isMobile ? 80 : 100),
+        top: absolutePosition + offset,
         behavior: 'smooth'
       })
     }
@@ -50,7 +66,7 @@ function App() {
       setActiveSection(null)
     } else {
       setActiveSection(section)
-      setTimeout(() => scrollToSection(sectionRefs[section]), 100)
+      setTimeout(() => scrollToSection(sectionRefs[section], section), 100)
     }
   }
 
