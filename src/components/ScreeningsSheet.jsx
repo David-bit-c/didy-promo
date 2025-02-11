@@ -283,7 +283,7 @@ export default function ScreeningsSheet({ isOpen, onClose }) {
             <h2 className="text-xl font-bold text-white">Séances par région</h2>
             <button 
               onClick={onClose}
-              className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-gray-800/40"
+              className="w-12 h-12 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800/40 rounded-full transition-all"
               aria-label="Fermer"
             >
               <span className="text-xl">✕</span>

@@ -33,11 +33,15 @@ function App() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  const closeButtonClass = "w-12 h-12 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800/40 rounded-full transition-all"
+
   const scrollToSection = (sectionRef) => {
     if (sectionRef.current) {
-      const yOffset = isMobile ? -50 : -100
-      const y = sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset
-      window.scrollTo({ top: y, behavior: 'smooth' })
+      const absolutePosition = sectionRef.current.offsetTop
+      window.scrollTo({
+        top: absolutePosition - (isMobile ? 80 : 100),
+        behavior: 'smooth'
+      })
     }
   }
 
@@ -139,9 +143,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Synopsis</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <Synopsis />
@@ -160,9 +164,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Bande-annonce</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <Trailer isOpen={activeSection === 'trailer'} />
@@ -183,9 +187,9 @@ function App() {
                   <h2 className="text-2xl font-bold">Séances par région</h2>
                   <button 
                     onClick={() => setActiveSection(null)}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className={closeButtonClass}
                   >
-                    ✕
+                    <span className="text-xl">✕</span>
                   </button>
                 </div>
                 <Screenings />
@@ -211,9 +215,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Les réalisateurs</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <Directors />
@@ -232,9 +236,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Retours du public</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <Feedback isOpen={activeSection === 'feedback'} />
@@ -253,9 +257,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Presse & Médias</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <Press />
@@ -274,9 +278,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Instagram</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <InstagramSection />
@@ -295,9 +299,9 @@ function App() {
                 <h2 className="text-2xl font-bold">Festivals & Prix</h2>
                 <button 
                   onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={closeButtonClass}
                 >
-                  ✕
+                  <span className="text-xl">✕</span>
                 </button>
               </div>
               <Awards />
