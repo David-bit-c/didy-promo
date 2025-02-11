@@ -7,6 +7,7 @@ import Feedback from './components/Feedback'
 import ShareMenu from './components/ShareMenu'
 import InstagramSection from './components/InstagramSection'
 import Awards from './components/Awards'
+import ScreeningsSheet from './components/ScreeningsSheet'
 
 function App() {
   const [activeSection, setActiveSection] = useState(null)
@@ -139,25 +140,34 @@ function App() {
           </div>
 
           {/* Screenings Section */}
-          <div
-            ref={sectionRefs.screenings}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'screenings' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-            }`}
-          >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">Séances par région</h2>
-                <button 
-                  onClick={() => setActiveSection(null)}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  ✕
-                </button>
+          {/* Screenings Section - Desktop */}
+          {!isMobile && (
+            <div
+              ref={sectionRefs.screenings}
+              className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                activeSection === 'screenings' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-2xl font-bold">Séances par région</h2>
+                  <button 
+                    onClick={() => setActiveSection(null)}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <Screenings />
               </div>
-              <Screenings />
             </div>
-          </div>
+          )}
+
+          {/* Screenings Sheet - Mobile */}
+          <ScreeningsSheet 
+            isOpen={isMobile && activeSection === 'screenings'} 
+            onClose={() => setActiveSection(null)}
+          />
 
           {/* Directors Section */}
           <div
