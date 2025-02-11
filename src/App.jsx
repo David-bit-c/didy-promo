@@ -56,47 +56,40 @@ function App() {
 
   const closeButtonClass = "w-12 h-12 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800/40 rounded-full transition-all"
 
-  const getOffset = (section) => {
-    if (isMobile) {
-      switch (section) {
-        case 'feedback':
-          return -60; // Remonter la section Retours du public
-        case 'press':
-          return -20; // S'assurer que le titre est toujours visible
-        default:
-          return -80;
-      }
-    }
-    return -100;
-  }
-
-  const scrollToSection = (sectionRef, section) => {
-    if (sectionRef.current) {
-      // Calculer la position de la fenêtre
-      const windowHeight = window.innerHeight
-      const sectionHeight = sectionRef.current.offsetHeight
-      const absolutePosition = sectionRef.current.offsetTop
-      
-      // Centrer la section dans la fenêtre
-      const targetPosition = absolutePosition - (windowHeight - sectionHeight) / 3
-      
-      window.scrollTo({
-        top: Math.max(0, targetPosition),
-        behavior: 'smooth'
-      })
-    }
+  const scrollToSection = (section) => {
+    const element = sectionRefs[section].current;
+    const windowHeight = window.innerHeight;
+    const elementRect = element.getBoundingClientRect();
+    const absoluteElementTop = elementRect.top + window.pageYOffset;
+    const offset = windowHeight * 0.15; // Position at 15% from top
+    
+    window.scrollTo({
+      top: absoluteElementTop - offset,
+      behavior: 'smooth'
+    });
   }
 
   const toggleSection = (section) => {
+    // Si on clique sur la section déjà active, on la ferme
     if (activeSection === section) {
-      setActiveSection(null)
+      setActiveSection(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // Si une autre section est active, on la ferme d'abord
+    if (activeSection) {
+      setActiveSection(null);
+      setTimeout(() => {
+        setActiveSection(section);
+        // Attendre que la section soit visible
+        setTimeout(() => scrollToSection(section), 50);
+      }, 200);
     } else {
-      setActiveSection(section)
-      // Attendre que l'animation d'ouverture commence
-      requestAnimationFrame(() => {
-        // Puis attendre un peu pour que la section ait sa taille finale
-        setTimeout(() => scrollToSection(sectionRefs[section], section), 150)
-      })
+      // Si aucune section n'est active, on ouvre directement la nouvelle
+      setActiveSection(section);
+      // Attendre que la section soit visible
+      setTimeout(() => scrollToSection(section), 50);
     }
   }
 
@@ -120,6 +113,7 @@ function App() {
       <div className="max-w-[500px] w-full mx-auto space-y-4 relative">
         {/* Action Buttons */}
         <button 
+          data-section="synopsis"
           onClick={() => toggleSection('synopsis')}
           className={`w-full bg-gradient-to-r from-yellow-600 to-yellow-700 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'synopsis' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -127,6 +121,7 @@ function App() {
         </button>
 
         <button 
+          data-section="trailer"
           onClick={() => toggleSection('trailer')}
           className={`w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'trailer' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -134,6 +129,7 @@ function App() {
         </button>
 
         <button 
+          data-section="screenings"
           onClick={() => toggleSection('screenings')}
           className={`w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'screenings' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -141,6 +137,7 @@ function App() {
         </button>
 
         <button 
+          data-section="directors"
           onClick={() => toggleSection('directors')}
           className={`w-full bg-gradient-to-r from-violet-500 to-violet-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'directors' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -148,6 +145,7 @@ function App() {
         </button>
 
         <button 
+          data-section="feedback"
           onClick={() => toggleSection('feedback')}
           className={`w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'feedback' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -155,6 +153,7 @@ function App() {
         </button>
 
         <button 
+          data-section="press"
           onClick={() => toggleSection('press')}
           className={`w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'press' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -162,6 +161,7 @@ function App() {
         </button>
 
         <button 
+          data-section="instagram"
           onClick={() => toggleSection('instagram')}
           className={`w-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'instagram' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -169,6 +169,7 @@ function App() {
         </button>
 
         <button 
+          data-section="details"
           onClick={() => toggleSection('details')}
           className={`w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3.5 px-6 rounded-full font-medium text-base shadow-lg hover:opacity-90 hover:scale-[0.98] transition-all ${activeSection === 'details' ? 'ring-2 ring-white/50' : ''}`}
         >
@@ -180,11 +181,11 @@ function App() {
           {/* Synopsis Section */}
           <div
             ref={sectionRefs.synopsis}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'synopsis' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.synopsis}] max-h-[${SECTION_HEIGHTS.mobile.synopsis}] opacity-100` : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'synopsis' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-2 text-white animate-fade-in border border-white/10 shadow-xl">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Synopsis</h2>
                 <button 
@@ -201,11 +202,11 @@ function App() {
           {/* Trailer Section */}
           <div
             ref={sectionRefs.trailer}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'trailer' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'trailer' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Bande-annonce</h2>
                 <button 
@@ -219,16 +220,15 @@ function App() {
             </div>
           </div>
 
-          {/* Screenings Section */}
           {/* Screenings Section - Desktop */}
           {!isMobile && (
             <div
               ref={sectionRefs.screenings}
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                activeSection === 'screenings' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.screenings}] max-h-[${SECTION_HEIGHTS.mobile.screenings}] opacity-100 overflow-y-auto` : 'max-h-0 opacity-0'
+              className={`${
+                activeSection === 'screenings' ? 'block opacity-100' : 'hidden opacity-0'
               }`}
             >
-              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto">
+              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-2xl font-bold">Séances par région</h2>
                   <button 
@@ -252,11 +252,11 @@ function App() {
           {/* Directors Section */}
           <div
             ref={sectionRefs.directors}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'directors' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.directors}] max-h-[${SECTION_HEIGHTS.mobile.directors}] opacity-100` : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'directors' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-2 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Les réalisateurs</h2>
                 <button 
@@ -273,11 +273,11 @@ function App() {
           {/* Feedback Section */}
           <div
             ref={sectionRefs.feedback}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'feedback' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.feedback}] max-h-[${SECTION_HEIGHTS.mobile.feedback}] opacity-100` : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'feedback' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Retours du public</h2>
                 <button 
@@ -294,11 +294,11 @@ function App() {
           {/* Press Section */}
           <div
             ref={sectionRefs.press}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'press' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.press}] max-h-[${SECTION_HEIGHTS.mobile.press}] opacity-100` : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'press' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl sm:p-6 p-3 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto -webkit-overflow-scrolling-touch">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Presse & Médias</h2>
                 <button 
@@ -315,11 +315,11 @@ function App() {
           {/* Instagram Section */}
           <div
             ref={sectionRefs.instagram}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'instagram' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.instagram}] max-h-[${SECTION_HEIGHTS.mobile.instagram}] opacity-100` : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'instagram' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Instagram</h2>
                 <button 
@@ -336,11 +336,11 @@ function App() {
           {/* Details Section */}
           <div
             ref={sectionRefs.details}
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'details' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.details}] max-h-[${SECTION_HEIGHTS.mobile.details}] opacity-100` : 'max-h-0 opacity-0'
+            className={`${
+              activeSection === 'details' ? 'block opacity-100' : 'hidden opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white border border-white/10 shadow-xl">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Festivals & Prix</h2>
                 <button 
