@@ -138,10 +138,10 @@ export default function Press() {
             </a>
           </div>
 
-          <div className="p-5 sm:p-6 bg-black/20 rounded-xl border border-white/10">
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-              <h4 className="font-bold text-white mb-2 sm:mb-0 break-words">Radio Vostok - La Quotidienne</h4>
-              <span className="text-sm text-gray-400 whitespace-nowrap ml-0 sm:ml-4">Février 2025</span>
+          <div className="p-4 xs:p-5 sm:p-6 bg-black/20 rounded-xl border border-white/10">
+            <div className="flex flex-col xs:flex-row xs:items-start xs:justify-between mb-3">
+              <h4 className="font-bold text-white mb-2 xs:mb-0 break-words max-w-[200px] xs:max-w-none">Radio Vostok - La Quotidienne</h4>
+              <span className="text-sm text-gray-400 whitespace-nowrap ml-0 xs:ml-4 shrink-0">Février 2025</span>
             </div>
             <p className="text-gray-300 text-sm mb-4">
               "Didy : à travers la mémoire de Gaël Kamilindi" - Interview
