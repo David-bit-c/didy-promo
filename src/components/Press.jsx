@@ -119,6 +119,24 @@ export default function Press() {
               Écouter l'émission <span className="ml-1">→</span>
             </a>
           </div>
+
+          <div className="p-4 sm:p-6 bg-black/20 rounded-xl border border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
+              <h4 className="font-bold text-white mb-1 sm:mb-0">Radio Vostok - La Quotidienne</h4>
+              <span className="text-sm text-gray-400">Février 2025</span>
+            </div>
+            <p className="text-gray-300 text-sm mb-3">
+              "Didy : à travers la mémoire de Gaël Kamilindi" - Interview
+            </p>
+            <a 
+              href="https://www.mixcloud.com/RadioVostok/didy-%C3%A0-travers-la-m%C3%A9moire-de-ga%C3%ABl-kamilindi-interview-la-quotidienne/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-sm text-blue-400 hover:text-blue-300"
+            >
+              Écouter l'interview <span className="ml-1">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

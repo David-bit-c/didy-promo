@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Tab } from '@headlessui/react'
 import { format } from 'date-fns'
 import { fr } from 'date-fns/locale'
@@ -241,6 +241,17 @@ function classNames(...classes) {
 
 export default function Screenings() {
   const regions = Object.keys(screenings).filter(region => region !== 'valais')
+  const [selectedTab, setSelectedTab] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -274,7 +285,7 @@ export default function Screenings() {
 
   return (
     <div className="w-full">
-      <Tab.Group>
+      <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
         <Tab.List className="flex flex-wrap gap-2 mb-6">
           {regions.map((region) => (
             <Tab
@@ -297,7 +308,11 @@ export default function Screenings() {
           {regions.map((region) => (
             <Tab.Panel
               key={region}
-              className="rounded-xl focus:outline-none space-y-3 max-h-[4000px] overflow-y-auto"
+              className={classNames(
+                'rounded-xl focus:outline-none space-y-3',
+                'sm:max-h-[4000px] max-h-[80vh] overflow-y-auto',
+                '-webkit-overflow-scrolling-touch'
+              )}
             >
               {screenings[region].map((screening) => (
                 <div key={screening.id} className="bg-gray-800/40 backdrop-blur-sm p-3 rounded-xl border border-white/10 shadow-lg">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Screenings from './components/Screenings'
 import Directors from './components/Directors'
 import Trailer from './components/Trailer'
@@ -6,9 +6,11 @@ import Press from './components/Press'
 import Feedback from './components/Feedback'
 import ShareMenu from './components/ShareMenu'
 import InstagramSection from './components/InstagramSection'
+import Awards from './components/Awards'
 
 function App() {
   const [activeSection, setActiveSection] = useState(null)
+  const [isMobile, setIsMobile] = useState(false)
   const sectionRefs = {
     trailer: useRef(null),
     screenings: useRef(null),
@@ -19,9 +21,18 @@ function App() {
     feedback: useRef(null)
   }
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const scrollToSection = (sectionRef) => {
     if (sectionRef.current) {
-      const yOffset = -20
+      const yOffset = isMobile ? -80 : -20
       const y = sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
@@ -32,7 +43,7 @@ function App() {
       setActiveSection(null)
     } else {
       setActiveSection(section)
-      setTimeout(() => scrollToSection(sectionRefs[section]), 100)
+      setTimeout(() => scrollToSection(sectionRefs[section]), 50)
     }
   }
 
@@ -236,7 +247,7 @@ function App() {
           <div
             ref={sectionRefs.details}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'details' ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'details' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
@@ -256,7 +267,7 @@ function App() {
                 bouleversantes avec les souvenirs des survivant·e·s pour tracer le portrait de cette femme.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div>
                   <h4 className="font-bold text-lg mb-2">🎬 Détails</h4>
                   <ul className="text-gray-300 space-y-1">
@@ -268,11 +279,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-lg mb-2">🏆 Festivals & Prix</h4>
-                  <ul className="text-gray-300 space-y-1">
-                    <li>Prix Agnès Varda 2024 - L'AGNÈS</li>
-                    <li>Sélection Officielle - Visions du Réel 2024</li>
-                    <li>Sélection Officielle - IDFA 2024</li>
-                  </ul>
+                  <Awards />
                 </div>
               </div>
             </div>
