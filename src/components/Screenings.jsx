@@ -7,28 +7,6 @@ import { FiMapPin, FiClock, FiCalendar } from 'react-icons/fi'
 const screenings = {
   geneve: [
     {
-      id: 1,
-      date: "2024-02-05",
-      time: "20:00",
-      cinema: "Ciné BIO Carouge",
-      address: "Rue Saint-Joseph 47, 1227 Carouge",
-      price: "17.00",
-      status: "available",
-      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
-      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
-    },
-    {
-      id: 11,
-      date: "2025-02-10",
-      time: "16:25",
-      cinema: "Ciné BIO Carouge - Bio 2",
-      address: "Rue Saint-Joseph 47, 1227 Carouge",
-      price: "17.00",
-      status: "available",
-      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
-      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
-    },
-    {
       id: 12,
       date: "2025-02-11",
       time: "14:00",
