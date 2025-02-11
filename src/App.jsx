@@ -10,6 +10,27 @@ import Awards from './components/Awards'
 import ScreeningsSheet from './components/ScreeningsSheet'
 import Synopsis from './components/Synopsis'
 
+const SECTION_HEIGHTS = {
+  desktop: {
+    screenings: '85vh',
+    press: '85vh',
+    details: '85vh',
+    feedback: '85vh',
+    synopsis: '85vh',
+    directors: '85vh',
+    instagram: '85vh'
+  },
+  mobile: {
+    screenings: '2000px',
+    press: '400vh',
+    details: '300vh',
+    feedback: '85vh',
+    synopsis: '85vh',
+    directors: '1500px',
+    instagram: '1200px'
+  }
+}
+
 function App() {
   const [activeSection, setActiveSection] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
@@ -151,7 +172,7 @@ function App() {
           <div
             ref={sectionRefs.synopsis}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'synopsis' ? 'sm:max-h-[600px] max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'synopsis' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.synopsis}] max-h-[${SECTION_HEIGHTS.mobile.synopsis}] opacity-100` : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-2 text-white animate-fade-in border border-white/10 shadow-xl">
@@ -195,10 +216,10 @@ function App() {
             <div
               ref={sectionRefs.screenings}
               className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                activeSection === 'screenings' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                activeSection === 'screenings' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.screenings}] max-h-[${SECTION_HEIGHTS.mobile.screenings}] opacity-100 overflow-y-auto` : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
+              <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-2xl font-bold">Séances par région</h2>
                   <button 
@@ -223,7 +244,7 @@ function App() {
           <div
             ref={sectionRefs.directors}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'directors' ? 'max-h-[1500px] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'directors' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.directors}] max-h-[${SECTION_HEIGHTS.mobile.directors}] opacity-100` : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-2 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto">
@@ -244,7 +265,7 @@ function App() {
           <div
             ref={sectionRefs.feedback}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'feedback' ? 'sm:max-h-[1000px] max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'feedback' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.feedback}] max-h-[${SECTION_HEIGHTS.mobile.feedback}] opacity-100` : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
@@ -265,7 +286,7 @@ function App() {
           <div
             ref={sectionRefs.press}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'press' ? 'sm:max-h-[4000px] max-h-[400vh] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'press' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.press}] max-h-[${SECTION_HEIGHTS.mobile.press}] opacity-100` : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl sm:p-6 p-3 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto -webkit-overflow-scrolling-touch">
@@ -286,7 +307,7 @@ function App() {
           <div
             ref={sectionRefs.instagram}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'instagram' ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'instagram' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.instagram}] max-h-[${SECTION_HEIGHTS.mobile.instagram}] opacity-100` : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
@@ -307,7 +328,7 @@ function App() {
           <div
             ref={sectionRefs.details}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'details' ? 'sm:max-h-[2000px] max-h-[300vh] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'details' ? `sm:max-h-[${SECTION_HEIGHTS.desktop.details}] max-h-[${SECTION_HEIGHTS.mobile.details}] opacity-100` : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto">
