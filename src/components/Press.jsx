@@ -60,6 +60,24 @@ export default function Press() {
               Lire l'article <span className="ml-1">→</span>
             </div>
           </a>
+
+          <a 
+            href="https://www.rts.ch/info/culture/cinema/2025/article/gael-kamilindi-retrace-l-histoire-de-sa-mere-dans-le-documentaire-didy-28782386.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-4 bg-black/20 rounded-xl hover:bg-black/30 transition-all border border-white/10"
+          >
+            <div className="flex items-start justify-between">
+              <h4 className="font-bold text-white mb-2">RTS Info</h4>
+              <span className="text-sm text-gray-400">Février 2025</span>
+            </div>
+            <p className="text-gray-300 text-sm mb-3">
+              "Gaël Kamilindi retrace l'histoire de sa mère dans le documentaire 'Didy'"
+            </p>
+            <div className="flex items-center text-sm text-blue-400 hover:text-blue-300">
+              Lire l'article <span className="ml-1">→</span>
+            </div>
+          </a>
         </div>
       </div>
 
