@@ -35,7 +35,7 @@ function App() {
 
   const scrollToSection = (sectionRef) => {
     if (sectionRef.current) {
-      const yOffset = isMobile ? -100 : -100
+      const yOffset = isMobile ? -50 : -100
       const y = sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
@@ -46,7 +46,7 @@ function App() {
       setActiveSection(null)
     } else {
       setActiveSection(section)
-      setTimeout(() => scrollToSection(sectionRefs[section]), 50)
+      setTimeout(() => scrollToSection(sectionRefs[section]), 100)
     }
   }
 
@@ -224,7 +224,7 @@ function App() {
           <div
             ref={sectionRefs.feedback}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'feedback' ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'feedback' ? 'sm:max-h-[1000px] max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
             <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 mt-4 text-white animate-fade-in border border-white/10 shadow-xl">
