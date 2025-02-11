@@ -1,14 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 export default function Feedback({ isOpen }) {
   const [isLoading, setIsLoading] = useState(true)
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
+  const videoRef = useRef(null)
   const videoId = '1055034244'
 
-  // Reset loading state when section is closed
   useEffect(() => {
     if (!isOpen) {
       setIsLoading(true)
+      setShouldLoadVideo(false)
+      return
     }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideo(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current)
+    }
+
+    return () => observer.disconnect()
   }, [isOpen])
 
   return (
@@ -20,15 +39,19 @@ export default function Feedback({ isOpen }) {
       </div>
 
       <div className="w-full bg-black rounded-xl overflow-hidden shadow-xl">
-        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+        <div 
+          ref={videoRef}
+          className="relative w-full" 
+          style={{ paddingBottom: '56.25%' }}
+        >
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
               <div className="text-white text-lg">Chargement de la vidéo...</div>
             </div>
           )}
-          {isOpen && (
+          {shouldLoadVideo && (
             <iframe
-              src={`https://player.vimeo.com/video/${videoId}?autoplay=0&title=0&byline=0&portrait=0`}
+              src={`https://player.vimeo.com/video/${videoId}?autoplay=0&title=0&byline=0&portrait=0&dnt=1&background=1&quality=auto`}
               title="Retours du public sur le film didy"
               className="absolute top-0 left-0 w-full h-full"
               frameBorder="0"
