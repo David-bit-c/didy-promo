@@ -72,11 +72,16 @@ function App() {
 
   const scrollToSection = (sectionRef, section) => {
     if (sectionRef.current) {
+      // Calculer la position de la fenêtre
+      const windowHeight = window.innerHeight
+      const sectionHeight = sectionRef.current.offsetHeight
       const absolutePosition = sectionRef.current.offsetTop
-      const offset = getOffset(section)
+      
+      // Centrer la section dans la fenêtre
+      const targetPosition = absolutePosition - (windowHeight - sectionHeight) / 3
       
       window.scrollTo({
-        top: absolutePosition + offset,
+        top: Math.max(0, targetPosition),
         behavior: 'smooth'
       })
     }
@@ -87,7 +92,11 @@ function App() {
       setActiveSection(null)
     } else {
       setActiveSection(section)
-      setTimeout(() => scrollToSection(sectionRefs[section], section), 100)
+      // Attendre que l'animation d'ouverture commence
+      requestAnimationFrame(() => {
+        // Puis attendre un peu pour que la section ait sa taille finale
+        setTimeout(() => scrollToSection(sectionRefs[section], section), 150)
+      })
     }
   }
 
