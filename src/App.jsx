@@ -205,10 +205,10 @@ function App() {
           <div
             ref={sectionRefs.press}
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              activeSection === 'press' ? 'sm:max-h-[4000px] max-h-[90vh] opacity-100' : 'max-h-0 opacity-0'
+              activeSection === 'press' ? 'sm:max-h-[4000px] max-h-[200vh] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl sm:p-6 p-4 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto -webkit-overflow-scrolling-touch">
+            <div className="bg-gray-900/40 backdrop-blur-sm rounded-2xl sm:p-6 p-3 mt-4 text-white animate-fade-in border border-white/10 shadow-xl overflow-y-auto -webkit-overflow-scrolling-touch">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Presse & Médias</h2>
                 <button 
