@@ -159,9 +159,9 @@ const screenings = {
       cinema: "Rex - Vevey",
       address: "Rue J.-J. Rousseau 6, 1800 Vevey",
       price: "15.00",
-      status: "coming",
+      status: "available",
       mapLink: "https://maps.google.com/?q=Cinema+Rex+Vevey",
-      bookingLink: "https://www.rexvevey.ch/"
+      bookingLink: "https://cinerive.com/fr/film/didy"
     },
     {
       id: 22,
@@ -170,9 +170,9 @@ const screenings = {
       cinema: "Rex - Vevey",
       address: "Rue J.-J. Rousseau 6, 1800 Vevey",
       price: "15.00",
-      status: "coming",
+      status: "available",
       mapLink: "https://maps.google.com/?q=Cinema+Rex+Vevey",
-      bookingLink: "https://www.rexvevey.ch/"
+      bookingLink: "https://cinerive.com/fr/film/didy"
     }
   ],
   fribourg: [
