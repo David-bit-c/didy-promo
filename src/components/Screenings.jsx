@@ -196,7 +196,6 @@ const screenings = {
       bookingLink: "https://www.rexvevey.ch/"
     }
   ],
-  valais: [],
   fribourg: [
     {
       id: 8,
@@ -241,7 +240,7 @@ function classNames(...classes) {
 }
 
 export default function Screenings() {
-  const regions = Object.keys(screenings)
+  const regions = Object.keys(screenings).filter(region => region !== 'valais')
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -298,11 +297,11 @@ export default function Screenings() {
           {regions.map((region) => (
             <Tab.Panel
               key={region}
-              className="rounded-xl focus:outline-none space-y-4 max-h-[2000px] overflow-y-auto"
+              className="rounded-xl focus:outline-none space-y-3 max-h-[4000px] overflow-y-auto"
             >
               {screenings[region].map((screening) => (
-                <div key={screening.id} className="bg-gray-800/40 backdrop-blur-sm p-4 rounded-xl border border-white/10 shadow-lg">
-                  <div className="flex justify-between items-start mb-4">
+                <div key={screening.id} className="bg-gray-800/40 backdrop-blur-sm p-3 rounded-xl border border-white/10 shadow-lg">
+                  <div className="flex justify-between items-start mb-3">
                     <div>
                       {screening.date && (
                         <div className="flex items-center gap-2 mb-1">
@@ -322,7 +321,7 @@ export default function Screenings() {
                     </span>
                   </div>
                   
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2 mb-3">
                     <p className="text-lg text-white">{screening.cinema}</p>
                     <a 
                       href={screening.mapLink}
@@ -343,14 +342,9 @@ export default function Screenings() {
                       href={screening.bookingLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transform transition hover:scale-105"
+                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transform transition hover:scale-105"
                     >
-                      {(screening.cinema.includes("La Bobine") || 
-                        screening.cinema.includes("Royal") || 
-                        screening.cinema.includes("Grain d'sel") || 
-                        screening.cinema.includes("Rex - Fribourg")) 
-                        ? "🎬 Infos & horaires" 
-                        : "🎟️ Réserver"}
+                      🎬 Infos & séances
                     </a>
                   </div>
                 </div>
