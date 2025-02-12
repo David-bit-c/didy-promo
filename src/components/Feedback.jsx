@@ -51,7 +51,7 @@ export default function Feedback({ isOpen }) {
           )}
           {shouldLoadVideo && (
             <iframe
-              src={`https://player.vimeo.com/video/${videoId}?autoplay=0&title=0&byline=0&portrait=0&dnt=1&background=1&quality=auto`}
+              src={`https://player.vimeo.com/video/${videoId}?autoplay=0&title=0&byline=0&portrait=0&dnt=1&quality=auto`}
               title="Retours du public sur le film didy"
               className="absolute top-0 left-0 w-full h-full"
               frameBorder="0"
@@ -59,7 +59,7 @@ export default function Feedback({ isOpen }) {
               allowFullScreen
               onLoad={() => setIsLoading(false)}
               loading="lazy"
-              style={{ zIndex: isLoading ? 0 : 1 }}
+              style={{ zIndex: 2 }}
             />
           )}
         </div>
