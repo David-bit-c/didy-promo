@@ -7,39 +7,6 @@ import { FiMapPin, FiClock, FiCalendar } from 'react-icons/fi'
 const screenings = {
   geneve: [
     {
-      id: 19,
-      date: "2025-02-18",
-      time: "14:00",
-      cinema: "Ciné BIO Carouge - Bio 1",
-      address: "Rue Saint-Joseph 47, 1227 Carouge",
-      price: "17.00",
-      status: "available",
-      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
-      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
-    },
-    {
-      id: 20,
-      date: "2025-02-19",
-      time: "14:00",
-      cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
-      address: "Rue Saint-Joseph 47, 1227 Carouge",
-      price: "17.00",
-      status: "available",
-      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
-      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
-    },
-    {
-      id: 21,
-      date: "2025-02-20",
-      time: "14:00",
-      cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
-      address: "Rue Saint-Joseph 47, 1227 Carouge",
-      price: "17.00",
-      status: "available",
-      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
-      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
-    },
-    {
       id: 22,
       date: "2025-02-21",
       time: "16:25",
@@ -75,6 +42,28 @@ const screenings = {
     {
       id: 25,
       date: "2025-02-24",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 26,
+      date: "2025-02-24",
+      time: "21:00",
+      cinema: "CINÉMA CDD",
+      address: "Rue des Charmilles 23, 1203 Genève",
+      price: "16.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Cinema+CDD+Geneve",
+      bookingLink: "http://www.cinemacdd.ch"
+    },
+    {
+      id: 27,
+      date: "2025-02-25",
       time: "14:00",
       cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
       address: "Rue Saint-Joseph 47, 1227 Carouge",
