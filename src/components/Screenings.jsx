@@ -7,8 +7,30 @@ import { FiMapPin, FiClock, FiCalendar } from 'react-icons/fi'
 const screenings = {
   geneve: [
     {
-      id: 22,
-      date: "2025-02-21",
+      id: 27,
+      date: "2025-02-25",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 28,
+      date: "2025-02-26",
+      time: "14:00",
+      cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
+      address: "Rue Saint-Joseph 47, 1227 Carouge",
+      price: "17.00",
+      status: "available",
+      mapLink: "https://maps.google.com/?q=Ciné+BIO+Carouge",
+      bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
+    },
+    {
+      id: 29,
+      date: "2025-02-27",
       time: "16:25",
       cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
       address: "Rue Saint-Joseph 47, 1227 Carouge",
@@ -18,9 +40,9 @@ const screenings = {
       bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
     },
     {
-      id: 23,
-      date: "2025-02-22",
-      time: "14:00",
+      id: 30,
+      date: "2025-03-01",
+      time: "16:25",
       cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
       address: "Rue Saint-Joseph 47, 1227 Carouge",
       price: "17.00",
@@ -29,9 +51,9 @@ const screenings = {
       bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
     },
     {
-      id: 24,
-      date: "2025-02-23",
-      time: "14:00",
+      id: 31,
+      date: "2025-03-02",
+      time: "18:30",
       cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
       address: "Rue Saint-Joseph 47, 1227 Carouge",
       price: "17.00",
@@ -40,9 +62,9 @@ const screenings = {
       bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
     },
     {
-      id: 25,
-      date: "2025-02-24",
-      time: "14:00",
+      id: 32,
+      date: "2025-03-03",
+      time: "16:25",
       cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
       address: "Rue Saint-Joseph 47, 1227 Carouge",
       price: "17.00",
@@ -51,20 +73,9 @@ const screenings = {
       bookingLink: "https://www.advance-ticket.ch/omniticket/cinema-bio?start=&end=&halls=&shows=1020687"
     },
     {
-      id: 26,
-      date: "2025-02-24",
-      time: "21:00",
-      cinema: "CINÉMA CDD",
-      address: "Rue des Charmilles 23, 1203 Genève",
-      price: "16.00",
-      status: "available",
-      mapLink: "https://maps.google.com/?q=Cinema+CDD+Geneve",
-      bookingLink: "http://www.cinemacdd.ch"
-    },
-    {
-      id: 27,
-      date: "2025-02-25",
-      time: "14:00",
+      id: 33,
+      date: "2025-03-04",
+      time: "16:25",
       cinema: "Ciné BIO Carouge - Salle Patricia Plattner",
       address: "Rue Saint-Joseph 47, 1227 Carouge",
       price: "17.00",
